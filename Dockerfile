@@ -1,8 +1,8 @@
 FROM java:8
-ARG version
 ARG artifact_id
-ARG java_opts
+ARG version
 ENV artifact=${artifact_id}-${version}.jar
 COPY target/${artifact} /opt/${artifact}
-ENTRYPOINT java $java_opts -jar /opt/${artifact}
+EXPOSE 8080
+ENTRYPOINT java -jar /opt/${artifact}
 
